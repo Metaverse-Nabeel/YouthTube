@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h2><b>Portfolio Website</b></h2>
+  <h2><b>YouthTube</b></h2>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -13,7 +13,6 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
-  - [🚀 Video Demo](#project-presentation)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -30,9 +29,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Portfolio <a name="about-project"></a>
+# 📖 YouthTube <a name="about-project"></a>
 
-**Portfolio** "Welcome to My Portfolio! This is a SPA (Single Page Application) where you cand find my projects, contact information, education and blogs."
+**YouthTube** "Welcome to YouthTube! This is a clone website of YouTube. I have named it YouthTube and it is made on T3 Stack."
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -69,7 +68,6 @@
 ### Key Features <a name="key-features"></a>
 
 - **[Setup with NextJS]**
-- **[Setup linters for React/Redux]**
 - **[Setup Basic Structure of App]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -79,13 +77,6 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo](https://nabeel-digital.vercel.app/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- Project Presentation -->
-## Project Presentation <a name="project-presentation"></a>
-
-- [Video Demo](https://nabeel-digital.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,9 +94,9 @@ Browser
 
 ### Setup
 
-git clone https://github.com/Metaverse-Nabeel/portfolio_next_JS.git
+git clone https://github.com/Metaverse-Nabeel/YouthTube.git
 
-cd portfolio_next_JS
+cd YouthTube
 
 ### Install
 
@@ -113,7 +104,7 @@ npm install
 
 ### Usage
 
-npm run start
+npm run dev
 
 ### Run tests
 
