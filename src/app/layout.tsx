@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "YouthTube",
-  description: "This is the clone of the YouTube app made using T3 stack.",
+  description: "This is the clone of the YouTube app made using T3 stack. This is the full stack web application.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
