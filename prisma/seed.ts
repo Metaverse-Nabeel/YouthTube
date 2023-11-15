@@ -20,54 +20,54 @@ const users: User[] = JSON.parse(fs.readFileSync(usersFile, "utf-8")) as User[];
 
 const videosFile = path.join(__dirname, "data/video.json");
 const videos: Video[] = JSON.parse(
-  fs.readFileSync(videosFile, "utf-8")
+  fs.readFileSync(videosFile, "utf-8"),
 ) as Video[];
 
 const videoEngagementsFile = path.join(__dirname, "data/videoEngagement.json");
 const videoEngagements: VideoEngagement[] = JSON.parse(
-  fs.readFileSync(videoEngagementsFile, "utf-8")
+  fs.readFileSync(videoEngagementsFile, "utf-8"),
 ) as VideoEngagement[];
 
 const followEngagementsFile = path.join(
   __dirname,
-  "data/followEngagement.json"
+  "data/followEngagement.json",
 );
 const followEngagements: FollowEngagement[] = JSON.parse(
-  fs.readFileSync(followEngagementsFile, "utf-8")
+  fs.readFileSync(followEngagementsFile, "utf-8"),
 ) as FollowEngagement[];
 
 const announcementsFile = path.join(__dirname, "data/announcement.json");
 const announcements: Announcement[] = JSON.parse(
-  fs.readFileSync(announcementsFile, "utf-8")
+  fs.readFileSync(announcementsFile, "utf-8"),
 ) as Announcement[];
 
 const announcementEngagementsFile = path.join(
   __dirname,
-  "data/announcementEngagement.json"
+  "data/announcementEngagement.json",
 );
 const announcementEngagements: AnnouncementEngagement[] = JSON.parse(
-  fs.readFileSync(announcementEngagementsFile, "utf-8")
+  fs.readFileSync(announcementEngagementsFile, "utf-8"),
 ) as AnnouncementEngagement[];
 
 const commentsFile = path.join(__dirname, "data/comment.json");
 const comments: Comment[] = JSON.parse(
-  fs.readFileSync(commentsFile, "utf-8")
+  fs.readFileSync(commentsFile, "utf-8"),
 ) as Comment[];
 
 const playlistsFile = path.join(__dirname, "data/playlist.json");
 const playlists: Playlist[] = JSON.parse(
-  fs.readFileSync(playlistsFile, "utf-8")
+  fs.readFileSync(playlistsFile, "utf-8"),
 ) as Playlist[];
 
 const playlistHasVideoFile = path.join(__dirname, "data/playlistHasVideo.json");
 const playlistHasVideos: PlaylistHasVideo[] = JSON.parse(
-  fs.readFileSync(playlistHasVideoFile, "utf-8")
+  fs.readFileSync(playlistHasVideoFile, "utf-8"),
 ) as PlaylistHasVideo[];
 
 async function processInChunks<T, U>(
   items: T[],
   chunkSize: number,
-  processItem: (item: T) => Promise<U>
+  processItem: (item: T) => Promise<U>,
 ): Promise<U[]> {
   const results: U[] = [];
   for (let i = 0; i < items.length; i += chunkSize) {
@@ -90,7 +90,7 @@ function generateNextId(start: number, end: number) {
 // Use these functions where you need to update the currentUserId and currentVideoId
 const getNextVideoId = generateNextId(1, 31);
 const getNextUserId = generateNextId(164, 178);
-const cloudinaryName = process.env.NEXT_PUBLIC_CLOUDINARY_NAME || "";
+const cloudinaryName = process.env.NEXT_PUBLIC_CLOUDINARY_NAME ?? "";
 
 async function main() {
   // Delete all records from tables
@@ -133,7 +133,7 @@ async function main() {
           ? `https://res.cloudinary.com/${cloudinaryName}${user.backgroundImage}`
           : null,
       },
-    })
+    }),
   );
 
   await processInChunks(videos, 1, (video) =>
@@ -151,11 +151,11 @@ async function main() {
         thumbnailUrl: `https://res.cloudinary.com/${cloudinaryName}${video.thumbnailUrl}`,
         videoUrl: `https://res.cloudinary.com/${cloudinaryName}${video.videoUrl}`,
       },
-    })
+    }),
   );
 
   await processInChunks(videoEngagements, 1, (videoEngagement) =>
-    prisma.videoEngagement.create({ data: videoEngagement })
+    prisma.videoEngagement.create({ data: videoEngagement }),
   );
 
   await processInChunks(followEngagements, 1, async (followEngagement) => {
@@ -173,7 +173,7 @@ async function main() {
   });
 
   await processInChunks(announcements, 1, (announcement) =>
-    prisma.announcement.create({ data: announcement })
+    prisma.announcement.create({ data: announcement }),
   );
 
   await processInChunks(
@@ -198,7 +198,7 @@ async function main() {
       } else {
         return;
       }
-    }
+    },
   );
   await processInChunks(comments, 1, (comment) =>
     prisma.comment.upsert({
@@ -215,7 +215,7 @@ async function main() {
         videoId: getNextVideoId(),
         createdAt: comment.createdAt ? new Date(comment.createdAt) : undefined,
       },
-    })
+    }),
   );
 
   await processInChunks(playlists, 1, async (playlist) =>
@@ -235,11 +235,11 @@ async function main() {
           ? new Date(playlist.createdAt)
           : undefined,
       },
-    })
+    }),
   );
 
   await processInChunks(playlistHasVideos, 1, (playlistHasVideo) =>
-    prisma.playlistHasVideo.create({ data: playlistHasVideo })
+    prisma.playlistHasVideo.create({ data: playlistHasVideo }),
   );
 }
 main()
