@@ -22,7 +22,7 @@ export default async function Home() {
             href="https://create.t3.gg/en/usage/first-steps"
             target="_blank"
           >
-            <h3 className="text-2xl font-bold">First Step → </h3>
+            <h3 className="text-xl font-bold">First Step → </h3>
             <div className="text-lg">
               Just the basics - Everything you need to know to set up your
               database and authentication.
