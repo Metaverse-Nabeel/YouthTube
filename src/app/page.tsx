@@ -36,7 +36,7 @@ export default async function Home() {
             <h3 className="text-2xl font-bold">Documentation →</h3>
             <div className="text-lg">
               Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it. The more you practice the more you learn.
+              deploy it.
             </div>
           </Link>
         </div>
